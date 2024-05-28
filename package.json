@@ -2,6 +2,8 @@
   "name": "activitywatch-api",
   "module": "index.ts",
   "type": "module",
+  "main": "dist/index.js",
+  "types": "index.ts",
   "devDependencies": {
     "@types/bun": "latest"
   },
@@ -10,6 +12,7 @@
   },
   "version": "0.0.5",
   "scripts": {
-    "build": "bunx swagger-typescript-api -p spec.yaml -o . --api-class-name ActivityWatchAPI --route-types -r -d --unwrap-response-data"
+    "build:gen": "bunx swagger-typescript-api -p spec.yaml -o . --api-class-name ActivityWatchAPI --route-types -r -d --unwrap-response-data",
+    "build": "bun build . --outdir=dist"
   }
 }
