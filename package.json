@@ -10,6 +10,6 @@
   },
   "version": "0.0.4",
   "scripts":{
-    "build": "bunx swagger-typescript-api -p app/aw/spec.yaml -o app/aw --api-class-name ActivityWatchAPI --route-types -r -d --unwrap-response-data"
+    "build": "bunx swagger-typescript-api -p spec.yaml -o . --api-class-name ActivityWatchAPI --route-types -r -d --unwrap-response-data"
   }
 }
