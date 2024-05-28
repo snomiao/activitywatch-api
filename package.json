@@ -2,6 +2,9 @@
   "name": "activitywatch-api",
   "module": "index.ts",
   "type": "module",
+  "scripts": {
+    "release": "bunx starnard-version && git push --follow-tags && npm publish"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },
