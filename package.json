@@ -10,7 +10,7 @@
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
-  "version": "0.0.5",
+  "version": "0.0.6",
   "scripts": {
     "build:gen": "bunx swagger-typescript-api -p spec.yaml -o . --api-class-name ActivityWatchAPI --route-types -r -d --unwrap-response-data",
     "build": "bun build . --outdir=dist"
