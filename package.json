@@ -8,8 +8,8 @@
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
-  "version": "0.0.4",
-  "scripts":{
+  "version": "0.0.5",
+  "scripts": {
     "build": "bunx swagger-typescript-api -p spec.yaml -o . --api-class-name ActivityWatchAPI --route-types -r -d --unwrap-response-data"
   }
 }
