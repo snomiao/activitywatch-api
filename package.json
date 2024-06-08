@@ -1,18 +1,26 @@
 {
   "name": "activitywatch-api",
-  "module": "index.ts",
+  "version": "0.0.7",
+  "author": "snomiao <snomiao@gmail.com>",
   "type": "module",
+  "exports": {
+    "import": "./dist/index.js",
+    "types": "./index.ts"
+  },
   "main": "dist/index.js",
-  "types": "index.ts",
+  "module": "index.ts",
+  "scripts": {
+    "build": "bun build . --outdir=dist",
+    "build:gen": "bunx swagger-typescript-api -p spec.yaml -o . --api-class-name ActivityWatchAPI --route-types -r -d --unwrap-response-data",
+    "release": "bunx standard-version && git push --follow-tags && npm publish",
+    "test": "bun test"
+  },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "^1.1.3",
+    "@types/jest": "^29.5.12",
+    "typescript": "^5.4.5"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
-  },
-  "version": "0.0.6",
-  "scripts": {
-    "build:gen": "bunx swagger-typescript-api -p spec.yaml -o . --api-class-name ActivityWatchAPI --route-types -r -d --unwrap-response-data",
-    "build": "bun build . --outdir=dist"
   }
 }
