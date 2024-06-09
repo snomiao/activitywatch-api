@@ -8,9 +8,9 @@ paths:
         "200":
           description: Success
           schema:
-            type: array
-            description: Bucket list
-            items:
+            description: Bucket dict
+            type: object
+            additionalProperties:
               "$ref": "#/definitions/Bucket"
       summary: "Get dict {bucket_name: Bucket} of all buckets"
       operationId: get_buckets_resource

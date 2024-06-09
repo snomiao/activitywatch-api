@@ -72,6 +72,296 @@ export interface Export {
   buckets?: Record<string, Bucket>;
 }
 
+export namespace V0 {
+  /**
+   * No description
+   * @tags default
+   * @name GetBucketsResource
+   * @summary Get dict {bucket_name: Bucket} of all buckets
+   * @request GET:/0/buckets/
+   * @response `200` `Record<string,Bucket>` Success
+   */
+  export namespace GetBucketsResource {
+    export type RequestParams = {};
+    export type RequestQuery = {};
+    export type RequestBody = never;
+    export type RequestHeaders = {};
+    export type ResponseBody = Record<string, Bucket>;
+  }
+  /**
+   * No description
+   * @tags default
+   * @name DeleteBucketResource
+   * @summary Delete a bucket
+   * @request DELETE:/0/buckets/{bucket_id}
+   * @response `200` `void` Success
+   */
+  export namespace DeleteBucketResource {
+    export type RequestParams = {
+      bucketId: string;
+    };
+    export type RequestQuery = {
+      /** Needs to be =1 to delete a bucket it non-testing mode */
+      force?: string;
+    };
+    export type RequestBody = never;
+    export type RequestHeaders = {};
+    export type ResponseBody = void;
+  }
+  /**
+   * @description Returns True if successful, otherwise false if a bucket with the given ID already existed.
+   * @tags default
+   * @name PostBucketResource
+   * @summary Create bucket
+   * @request POST:/0/buckets/{bucket_id}
+   * @response `200` `void` Success
+   */
+  export namespace PostBucketResource {
+    export type RequestParams = {
+      bucketId: string;
+    };
+    export type RequestQuery = {};
+    export type RequestBody = CreateBucket;
+    export type RequestHeaders = {};
+    export type ResponseBody = void;
+  }
+  /**
+   * No description
+   * @tags default
+   * @name GetBucketResource
+   * @summary Get metadata about bucket
+   * @request GET:/0/buckets/{bucket_id}
+   * @response `200` `Bucket` Success
+   */
+  export namespace GetBucketResource {
+    export type RequestParams = {
+      bucketId: string;
+    };
+    export type RequestQuery = {};
+    export type RequestBody = never;
+    export type RequestHeaders = {};
+    export type ResponseBody = Bucket;
+  }
+  /**
+   * @description Can handle both single events and multiple ones. Returns the inserted event when a single event was inserted, otherwise None.
+   * @tags default
+   * @name PostEventsResource
+   * @summary Create events for a bucket
+   * @request POST:/0/buckets/{bucket_id}/events
+   * @response `200` `void` Success
+   */
+  export namespace PostEventsResource {
+    export type RequestParams = {
+      bucketId: string;
+    };
+    export type RequestQuery = {};
+    export type RequestBody = Event;
+    export type RequestHeaders = {};
+    export type ResponseBody = void;
+  }
+  /**
+   * No description
+   * @tags default
+   * @name GetEventsResource
+   * @summary Get events from a bucket
+   * @request GET:/0/buckets/{bucket_id}/events
+   * @response `200` `(Event)[]` Success
+   */
+  export namespace GetEventsResource {
+    export type RequestParams = {
+      bucketId: string;
+    };
+    export type RequestQuery = {
+      /** End date of events */
+      end?: string;
+      /** Start date of events */
+      start?: string;
+      /** the maximum number of requests to get */
+      limit?: string;
+    };
+    export type RequestBody = never;
+    export type RequestHeaders = {};
+    export type ResponseBody = Event[];
+  }
+  /**
+   * No description
+   * @tags default
+   * @name GetEventCountResource
+   * @summary Get eventcount from a bucket
+   * @request GET:/0/buckets/{bucket_id}/events/count
+   * @response `200` `number` Success
+   */
+  export namespace GetEventCountResource {
+    export type RequestParams = {
+      bucketId: string;
+    };
+    export type RequestQuery = {
+      /** End date of eventcount */
+      end?: string;
+      /** Start date of eventcount */
+      start?: string;
+    };
+    export type RequestBody = never;
+    export type RequestHeaders = {};
+    export type ResponseBody = number;
+  }
+  /**
+   * No description
+   * @tags default
+   * @name DeleteEventResource
+   * @summary Delete a single event from a bucket
+   * @request DELETE:/0/buckets/{bucket_id}/events/{event_id}
+   * @response `200` `void` Success
+   */
+  export namespace DeleteEventResource {
+    export type RequestParams = {
+      bucketId: string;
+      eventId: number;
+    };
+    export type RequestQuery = {};
+    export type RequestBody = never;
+    export type RequestHeaders = {};
+    export type ResponseBody = void;
+  }
+  /**
+   * No description
+   * @tags default
+   * @name GetEventResource
+   * @summary Get a single event from a bucket
+   * @request GET:/0/buckets/{bucket_id}/events/{event_id}
+   * @response `200` `Event` Success
+   */
+  export namespace GetEventResource {
+    export type RequestParams = {
+      bucketId: string;
+      eventId: number;
+    };
+    export type RequestQuery = {};
+    export type RequestBody = never;
+    export type RequestHeaders = {};
+    export type ResponseBody = Event;
+  }
+  /**
+   * No description
+   * @tags default
+   * @name GetBucketExportResource
+   * @summary Export a bucket to a dataformat consistent across versions, including all events in it
+   * @request GET:/0/buckets/{bucket_id}/export
+   * @response `200` `Export` Success
+   */
+  export namespace GetBucketExportResource {
+    export type RequestParams = {
+      bucketId: string;
+    };
+    export type RequestQuery = {};
+    export type RequestBody = never;
+    export type RequestHeaders = {};
+    export type ResponseBody = Export;
+  }
+  /**
+   * @description track of a state, how long it's in that state and when it changes. A single heartbeat always has a duration of zero. If the heartbeat was identical to the last (apart from timestamp), then the last event has its duration updated. If the heartbeat differed, then a new event is created. Such as: - Active application and window title - Example: aw-watcher-window - Currently open document/browser tab/playing song - Example: wakatime - Example: aw-watcher-web - Example: aw-watcher-spotify - Is the user active/inactive? Send an event on some interval indicating if the user is active or not. - Example: aw-watcher-afk Inspired by: https://wakatime.com/developers#heartbeats
+   * @tags default
+   * @name PostHeartbeatResource
+   * @summary Heartbeats are useful when implementing watchers that simply keep
+   * @request POST:/0/buckets/{bucket_id}/heartbeat
+   * @response `200` `void` Success
+   */
+  export namespace PostHeartbeatResource {
+    export type RequestParams = {
+      bucketId: string;
+    };
+    export type RequestQuery = {
+      /** Largest timewindow allowed between heartbeats for them to merge */
+      pulsetime?: string;
+    };
+    export type RequestBody = Event;
+    export type RequestHeaders = {};
+    export type ResponseBody = void;
+  }
+  /**
+   * No description
+   * @tags default
+   * @name GetExportAllResource
+   * @summary Exports all buckets and their events to a format consistent across versions
+   * @request GET:/0/export
+   * @response `200` `Export` Success
+   */
+  export namespace GetExportAllResource {
+    export type RequestParams = {};
+    export type RequestQuery = {};
+    export type RequestBody = never;
+    export type RequestHeaders = {};
+    export type ResponseBody = Export;
+  }
+  /**
+   * No description
+   * @tags default
+   * @name PostImportAllResource
+   * @request POST:/0/import
+   * @response `200` `void` Success
+   */
+  export namespace PostImportAllResource {
+    export type RequestParams = {};
+    export type RequestQuery = {};
+    export type RequestBody = Export;
+    export type RequestHeaders = {};
+    export type ResponseBody = void;
+  }
+  /**
+   * No description
+   * @tags default
+   * @name GetInfoResource
+   * @summary Get server info
+   * @request GET:/0/info
+   * @response `200` `Info` Success
+   */
+  export namespace GetInfoResource {
+    export type RequestParams = {};
+    export type RequestQuery = {};
+    export type RequestBody = never;
+    export type RequestHeaders = {
+      /**
+       * An optional fields mask
+       * @format mask
+       */
+      "X-Fields"?: string;
+    };
+    export type ResponseBody = Info;
+  }
+  /**
+   * No description
+   * @tags default
+   * @name GetLogResource
+   * @summary Get the server log in json format
+   * @request GET:/0/log
+   * @response `200` `void` Success
+   */
+  export namespace GetLogResource {
+    export type RequestParams = {};
+    export type RequestQuery = {};
+    export type RequestBody = never;
+    export type RequestHeaders = {};
+    export type ResponseBody = void;
+  }
+  /**
+   * No description
+   * @tags default
+   * @name PostQueryResource
+   * @request POST:/0/query/
+   * @response `200` `void` Success
+   */
+  export namespace PostQueryResource {
+    export type RequestParams = {};
+    export type RequestQuery = {
+      /** Name of the query (required if using cache) */
+      name?: string;
+    };
+    export type RequestBody = Query;
+    export type RequestHeaders = {};
+    export type ResponseBody = void;
+  }
+}
+
 export type QueryParamsType = Record<string | number, any>;
 export type ResponseFormat = keyof Omit<Body, "body" | "bodyUsed">;
 
@@ -178,8 +468,8 @@ export class HttpClient<SecurityDataType = unknown> {
           property instanceof Blob
             ? property
             : typeof property === "object" && property !== null
-            ? JSON.stringify(property)
-            : `${property}`,
+              ? JSON.stringify(property)
+              : `${property}`,
         );
         return formData;
       }, new FormData()),
@@ -252,7 +542,7 @@ export class HttpClient<SecurityDataType = unknown> {
       signal: (cancelToken ? this.createAbortSignal(cancelToken) : requestParams.signal) || null,
       body: typeof body === "undefined" || body === null ? null : payloadFormatter(body),
     }).then(async (response) => {
-      const r = response as HttpResponse<T, E>;
+      const r = response.clone() as HttpResponse<T, E>;
       r.data = null as unknown as T;
       r.error = null as unknown as E;
 
@@ -296,10 +586,10 @@ export class ActivityWatchAPI<SecurityDataType extends unknown> extends HttpClie
      * @name GetBucketsResource
      * @summary Get dict {bucket_name: Bucket} of all buckets
      * @request GET:/0/buckets/
-     * @response `200` `(Bucket)[]` Success
+     * @response `200` `Record<string,Bucket>` Success
      */
     getBucketsResource: (params: RequestParams = {}) =>
-      this.request<Bucket[], any>({
+      this.request<Record<string, Bucket>, any>({
         path: `/0/buckets/`,
         method: "GET",
         format: "json",
