@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.9](https://github.com/snomiao/activitywatch-api/compare/v0.0.8...v0.0.9) (2024-06-09)
+
+
+### Bug Fixes
+
+* **bucket:** list type ([aac2d96](https://github.com/snomiao/activitywatch-api/commit/aac2d9673a452bdff36e2584eef25b39df19ce13))
+
 ### [0.0.8](https://github.com/snomiao/activitywatch-api/compare/v0.0.7...v0.0.8) (2024-06-09)
 
 
