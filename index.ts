@@ -1,3 +1,3 @@
 import { ActivityWatchAPI } from "./Api";
-
-export default ActivityWatchAPI
+export * from "./Api";
+export default ActivityWatchAPI;
