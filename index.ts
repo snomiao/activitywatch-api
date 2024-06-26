@@ -2,6 +2,7 @@ import { ActivityWatchAPI, type ApiConfig } from "./Api";
 export * from "./Api";
 export default ActivityWatchAPI;
 
+/** ActivityWatchApi, support username:password in url, baseauth */
 export function AWApi<Options extends Omit<ApiConfig, "baseUrl">>(
   baseUrl: string,
   options?: Options
