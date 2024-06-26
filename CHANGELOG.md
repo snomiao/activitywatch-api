@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.11](https://github.com/snomiao/activitywatch-api/compare/v0.0.10...v0.0.11) (2024-06-26)
+
+
+### Features
+
+* **main:** use with credentials ([75b102a](https://github.com/snomiao/activitywatch-api/commit/75b102aa9e566bf206ab012df889387bbc7f0946))
+* **pkg:** name rename to activity-watch-api t ([9442d1a](https://github.com/snomiao/activitywatch-api/commit/9442d1a901e77826caabf7ad26a2cff3f861a907))
+
 ### [0.0.10](https://github.com/snomiao/activitywatch-api/compare/v0.0.9...v0.0.10) (2024-06-26)
 
 ### [0.0.9](https://github.com/snomiao/activitywatch-api/compare/v0.0.8...v0.0.9) (2024-06-09)
