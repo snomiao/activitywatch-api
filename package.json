@@ -1,6 +1,6 @@
 {
-  "name": "activity-watch-api",
-  "version": "0.0.11",
+  "name": "activitywatch-api",
+  "version": "0.0.12",
   "author": "snomiao <snomiao@gmail.com>",
   "type": "module",
   "exports": {
