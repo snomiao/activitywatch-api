@@ -4,8 +4,14 @@
   "author": "snomiao <snomiao@gmail.com>",
   "type": "module",
   "exports": {
-    "import": "./dist/index.js",
-    "types": "./index.ts"
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./index.ts"
+    },
+    "./zSchema": {
+      "import": "./dist/zSchema.js",
+      "types": "./zSchema.ts"
+    }
   },
   "main": "dist/index.js",
   "module": "index.ts",
@@ -13,7 +19,7 @@
     "examples"
   ],
   "scripts": {
-    "build": "bun build . --outdir=dist",
+    "build": "bun build ./ --outdir=dist",
     "build:gen": "bunx swagger-typescript-api -p spec.yaml -o . --api-class-name ActivityWatchAPI --route-types -r -d --unwrap-response-data",
     "release": "bunx standard-version && git push --follow-tags && npm publish",
     "test": "bun test"

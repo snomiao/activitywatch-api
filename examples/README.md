@@ -5,4 +5,4 @@
 1. git clone this repo
 2. `bun install`
 3. `cd examples/ && mkdir out`
-4. `bun src/export-csv.ts > out/exported.csv`
+4. `bun src/export-wins-csv.ts > out/exported.csv`
