@@ -176,3 +176,5 @@ dist
 
 *.js
 *.tgz
+
+bun.lockb
