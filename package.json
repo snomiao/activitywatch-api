@@ -8,9 +8,9 @@
       "import": "./dist/index.js",
       "types": "./index.ts"
     },
-    "./zSchema": {
-      "import": "./dist/zSchema.js",
-      "types": "./zSchema.ts"
+    "./zActivityWatch": {
+      "import": "./dist/zActivityWatch.ts",
+      "types": "./zActivityWatch.ts"
     }
   },
   "main": "dist/index.js",
