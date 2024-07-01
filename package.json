@@ -4,13 +4,22 @@
   "author": "snomiao <snomiao@gmail.com>",
   "type": "module",
   "exports": {
-    "import": "./dist/index.js",
-    "types": "./index.ts"
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./index.ts"
+    },
+    "./zActivityWatch": {
+      "import": "./dist/zActivityWatch.ts",
+      "types": "./zActivityWatch.ts"
+    }
   },
   "main": "dist/index.js",
   "module": "index.ts",
+  "workspaces": [
+    "examples"
+  ],
   "scripts": {
-    "build": "bun build . --outdir=dist",
+    "build": "bun build ./ --outdir=dist",
     "build:gen": "bunx swagger-typescript-api -p spec.yaml -o . --api-class-name ActivityWatchAPI --route-types -r -d --unwrap-response-data",
     "release": "bunx standard-version && git push --follow-tags && npm publish",
     "test": "bun test"
@@ -18,6 +27,7 @@
   "devDependencies": {
     "@types/bun": "^1.1.3",
     "@types/jest": "^29.5.12",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "zod": "^3.23.8"
   }
 }
