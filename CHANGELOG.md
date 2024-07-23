@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.13](https://github.com/snomiao/activitywatch-api/compare/v0.0.12...v0.0.13) (2024-07-23)
+
+
+### Features
+
+* **zActivityWatch:** export ([3294883](https://github.com/snomiao/activitywatch-api/commit/32948835303e4ad2c239e0cc0b6a0c8af5dbbd3e))
+
+
+### Bug Fixes
+
+* **main:** ignore bunlockb ([692c455](https://github.com/snomiao/activitywatch-api/commit/692c4554f03a01234b7306b71854d3f7c328ba38))
+* **main:** ignore lockb ([9b028e8](https://github.com/snomiao/activitywatch-api/commit/9b028e8e6b7e3d41f082514a347bbd73df0c54cb))
+* **main:** schema ([827cb6f](https://github.com/snomiao/activitywatch-api/commit/827cb6f4eb62c9a5ac8705c62b1fedfe6d9c49fd))
+* **main:** zod exports ([cb7a9c5](https://github.com/snomiao/activitywatch-api/commit/cb7a9c55bf6033a67fe60c3997581e478d9c1a53))
+
 ### [0.0.12](https://github.com/snomiao/activitywatch-api/compare/v0.0.11...v0.0.12) (2024-06-26)
 
 ### [0.0.11](https://github.com/snomiao/activitywatch-api/compare/v0.0.10...v0.0.11) (2024-06-26)
